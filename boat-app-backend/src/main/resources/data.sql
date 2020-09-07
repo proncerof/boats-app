@@ -1,0 +1,1 @@
+INSERT INTO USER (id, username, password) VALUES (1, 'openweb', '$2a$10$OW/o.qPMqc2PE6w4em/OQeHlmDWxlnD9p203HILkfFQ74mmK0pqkW')

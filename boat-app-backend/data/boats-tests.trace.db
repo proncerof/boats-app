@@ -1,0 +1,4 @@
+2020-09-07 23:08:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO USER (ID, USERNAME, PASSWORD) VALUE[*](1, 'openweb', '$2a$10$OW/o.qPMqc2PE6w4em/OQeHlmDWxlnD9p203HILkfFQ74mmK0pqkW	')"; se esperaba "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO USER (ID, USERNAME, PASSWORD) VALUE[*](1, 'openweb', '$2a$10$OW/o.qPMqc2PE6w4em/OQeHlmDWxlnD9p203HILkfFQ74mmK0pqkW	')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO USER (id, username, password) value(1, 'openweb', '$2a$10$OW/o.qPMqc2PE6w4em/OQeHlmDWxlnD9p203HILkfFQ74mmK0pqkW	') [42001-200]
