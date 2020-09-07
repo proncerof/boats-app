@@ -21,7 +21,7 @@ const BoatList = ({
     deleteBoat(boatId).then(({ error }) => {
       if (!error) {
         NotificationManager.success('The boat has been successfully deleted.', 'Success!');
-        getAllBoats();
+        getAllBoats(query);
       } else { NotificationManager.error('An error has occurred while deleting the boat.', 'Error!'); }
     });
   };
