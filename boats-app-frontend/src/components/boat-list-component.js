@@ -109,6 +109,7 @@ BoatList.propTypes = {
   query: PropTypes.shape({
     page: PropTypes.number,
     size: PropTypes.number,
+    search: PropTypes.string,
   }).isRequired,
 };
 
