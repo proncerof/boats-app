@@ -5,13 +5,13 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./boat-app-backend/src/main/resources/data.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./boats-app-backend/src/main/resources/data.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: boats-app
   boat-app-backend:
-    build: ./boat-app-backend/
+    build: ./boats-app-backend/
     ports: 
       - "8080:8080"
     depends_on:

@@ -1,7 +1,11 @@
 # Boats app
 In order to run this project follow the following instructions:
-  1. Make sure that you have docker and docker-compose installed
-  1. Run the following command:
+  1. Install java 11 and maven, and run the following commands:
+```bash
+$ cd boats-app-backend
+$ mvn spring-boot:build-image
+```
+  2. Install docker and docker-compose, and run the following command:
 ```bash
 $ docker-compose up
 ```
