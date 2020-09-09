@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -31,11 +30,12 @@ public class BoatController {
 
     @GetMapping("{id}")
     public ResponseEntity findBoatById(@PathVariable("id") Long id) {
-        Optional<Boat> optionalBoat = boatService.findById(id);
-        if (optionalBoat.isPresent()) {
+        try {
+            Optional<Boat> optionalBoat = boatService.findById(id);
             return ResponseEntity.ok(optionalBoat.get());
+        } catch (BoatNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
@@ -48,7 +48,7 @@ public class BoatController {
         try {
             return ResponseEntity.ok(boatService.updateBoat(id, boat));
         } catch (BoatNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND );
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -56,9 +56,9 @@ public class BoatController {
     public ResponseEntity deleteBoat(@PathVariable("id") Long id) {
         try {
             boatService.deleteBoat(id);
-            return ResponseEntity.ok("Boat with id="+id+" has been deleted.");
+            return ResponseEntity.ok("Boat with id=" + id + " has been deleted.");
         } catch (BoatNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND );
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 

@@ -5,13 +5,20 @@ import PropTypes from 'prop-types';
 import { Icon, Header } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
 import { getBoatByIdAction } from '../actions/get-boat-by-id';
+import { NotificationManager } from 'react-notifications';
 
 const BoatDetailPage = ({
   boat, getBoatById, match, history,
 }) => {
   useEffect(() => {
-    getBoatById(match.params.id);
-  }, []);
+    getBoatById(match.params.id).then(
+      ({ error }) => {
+        if (error) {
+          NotificationManager.error('Boat does not exist.', 'Error!');
+        }
+      },
+    );
+  }, [match.params.id]);
   return (
     <>
       <Icon onClick={() => history.goBack()} name="arrow left" />

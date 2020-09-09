@@ -1,20 +1,17 @@
 package com.example.boatapp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
-@Entity
+@Entity(name="BOATS")
 public class Boat {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    @Lob
+    @Column(columnDefinition="TEXT")
     private String description;
 
     public Boat() {}

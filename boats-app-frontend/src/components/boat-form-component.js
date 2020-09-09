@@ -22,12 +22,14 @@ const BoatForm = ({ boat, onSubmit }) => {
         label="Boat name"
         placeholder="Boat name"
         value={name}
+        required
         onChange={(e, { value }) => setName(value)}
       />
       <Form.TextArea
         label="Boat description"
         placeholder="Boat description"
         value={description}
+        required
         onChange={(e, { value }) => setDescription(value)}
       />
       <Button type="submit" primary>Submit</Button>

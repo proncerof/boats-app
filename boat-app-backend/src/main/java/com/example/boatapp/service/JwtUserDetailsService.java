@@ -1,9 +1,5 @@
 package com.example.boatapp.service;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
-import com.example.boatapp.entity.User;
 import com.example.boatapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

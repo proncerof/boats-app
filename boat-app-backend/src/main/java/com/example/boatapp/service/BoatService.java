@@ -24,8 +24,11 @@ public class BoatService {
         return boatRepository.findAllByNameOrDescriptionLike(search, page);
     }
 
-    public Optional<Boat> findById(Long id) {
-        return boatRepository.findById(id);
+    public Optional<Boat> findById(Long id) throws BoatNotFoundException {
+        if (boatRepository.existsById(id))
+            return boatRepository.findById(id);
+        else
+            throw new BoatNotFoundException("There is not a boat with id=" + id);
     }
 
     public Boat createBoat(Boat boat) {

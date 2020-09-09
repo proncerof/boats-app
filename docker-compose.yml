@@ -1,0 +1,22 @@
+version: '3'
+services:
+  postgres-db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./boat-app-backend/src/main/resources/data.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: boats-app
+  boat-app-backend:
+    build: ./boat-app-backend/
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+  boat-app-frontend:
+    build: ./boats-app-frontend/
+    ports:
+      - "3000:3000"

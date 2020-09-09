@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BoatRepository extends PagingAndSortingRepository<Boat, Long> {
 
-    @Query("select b from Boat b where b.name like %?1% or b.description like %?1%")
+    @Query("select b from BOATS b where b.name like %?1% or b.description like %?1%")
     Page<Boat> findAllByNameOrDescriptionLike( String search, Pageable page);
 }
